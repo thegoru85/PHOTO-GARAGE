@@ -1,0 +1,331 @@
+ a este codigo <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jorge Cruz | Portafolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --bg-color: #1a0a00;
+      --text-color: #fff3e0;
+      --accent: #ff4500; /* rojo anaranjado fuerte */
+      --accent-light: #ff7f50; /* coral */
+      --card-bg: #330b00;
+      --card-hover: #ff5722;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    header {
+      padding: 3rem 2rem;
+      background: url('https://www.septgratuit.fr/images/la-veritable-influence-des-drones-sur-notre-avenir.jpg') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header-overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.7);
+      position: relative;
+      z-index: 1;
+      margin: 0 auto;
+      max-width: 800px;
+    }
+
+    .header-overlay img {
+      width: 120px;
+      height: auto;
+      filter: drop-shadow(0 0 10px #00f0ff);
+    }
+
+    header h1, header p {
+      margin: 0;
+      text-shadow:
+        2px 2px 8px rgba(0, 0, 0, 0.8),
+        0 0 10px rgba(255, 140, 0, 0.7);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    header p {
+      margin-top: 0.3rem;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    nav {
+      background: #7a1f00;
+      padding: 0.75rem;
+      text-align: center;
+    }
+
+    nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      margin: 0 1.2rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent-light);
+      text-decoration: underline;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(255, 69, 0, 0.4);
+    }
+
+    section h2 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      text-shadow: 0 0 8px #ff7f50;
+    }
+
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .card {
+      background: #4b1900;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #ff4500;
+      padding: 2rem 1.5rem;
+      width: 280px;
+      text-align: center;
+      cursor: default;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      color: var(--text-color);
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 30px #ff7f50;
+      background: var(--card-hover);
+    }
+
+    .card i {
+      font-size: 3rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      text-shadow: 0 0 5px #ff8c00;
+    }
+
+    textarea, input[type="text"] {
+      width: 100%;
+      padding: 0.7rem;
+      margin-top: 0.5rem;
+      border: 1px solid #ff5722;
+      border-radius: 5px;
+      font-size: 1rem;
+      background: #3d1400;
+      color: var(--text-color);
+      box-shadow: 0 0 8px #ff4500 inset;
+      transition: box-shadow 0.3s;
+    }
+    textarea:focus, input[type="text"]:focus {
+      outline: none;
+      box-shadow: 0 0 15px #ff8c00 inset;
+      border-color: #ff8c00;
+    }
+
+    button {
+      margin-top: 1rem;
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+      box-shadow: 0 0 10px #ff4500;
+    }
+    button:hover {
+      background-color: #ff8c00;
+      box-shadow: 0 0 20px #ff8c00;
+    }
+
+    .post {
+      background: #3d1400;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 15px #ff5722;
+    }
+
+    footer {
+      text-align: center;
+      background: linear-gradient(to right, #ff4500, #ff8c00);
+      color: white;
+      padding: 1rem;
+      margin-top: 2rem;
+      text-shadow: 0 0 5px #ff7f50;
+    }
+
+    .floating-buttons {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      z-index: 999;
+    }
+
+    .floating-buttons a {
+      background: var(--accent);
+      color: white;
+      font-size: 1.6rem;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .floating-buttons a:hover {
+      background-color: #ff8c00;
+    }
+
+    @media (max-width: 768px) {
+      .services {
+        flex-direction: column;
+        align-items: center;
+      }
+      .card {
+        width: 90%;
+      }
+      nav a {
+        display: inline-block;
+        margin: 0.5rem 1rem;
+      }
+      .header-overlay {
+        flex-direction: column;
+        text-align: center;
+      }
+      .header-overlay img {
+        width: 90px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-overlay">
+      <img src="logo.png" alt="Logo JC Drones">
+      <div>
+        <h1>Jorge Cruz</h1>
+        <p>Desarrollador Web | Fotografía y Video con Drones</p>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#blog">Blog</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <section id="servicios">
+    <h2>Servicios con Drones</h2>
+    <div class="services">
+      <div class="card">
+        <i class="fas fa-camera-retro"></i>
+        <h3>Fotografía Aérea</h3>
+        <p>Captura de paisajes, eventos o propiedades desde el cielo.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-video"></i>
+        <h3>Video Profesional</h3>
+        <p>Grabación aérea en 4K para publicidad, bodas y más.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-map-marked-alt"></i>
+        <h3>Mapeo 3D</h3>
+        <p>Modelado de terrenos, inspecciones y agricultura de precisión.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="blog">
+    <h2>Crear nueva entrada</h2>
+    <input type="text" id="titulo" placeholder="Título del post" />
+    <textarea id="contenido" rows="6" placeholder="Escribe tu contenido aquí..."></textarea>
+    <button onclick="agregarPost()">Publicar</button>
+
+    <h2 style="margin-top:2rem;">Entradas recientes</h2>
+    <div id="posts"></div>
+  </section>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Jorge Cruz | Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Botones flotantes redes sociales -->
+  <div class="floating-buttons">
+    <a href="https://wa.me/528130397405" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://www.facebook.com/jorgehector.cruzmartinez/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="mailto:thegoru85@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+    <a href="https://instagram.com/thegoru85" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://x.com/thegoru85" target="_blank" title="X"><i class="fab fa-X"></i></a>
+    <a href="https://linkedin.com/in/jorgecruz" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+  </div>
+
+
+  <script>
+    function agregarPost() {
+      const titulo = document.getElementById("titulo").value.trim();
+      const contenido = document.getElementById("contenido").value.trim();
+
+      if (!titulo || !contenido) {
+        alert("Por favor completa todos los campos.");
+        return;
+      }
+
+      const postDiv = document.createElement("div");
+      postDiv.className = "post";
+      postDiv.innerHTML = <h3>${titulo}</h3><p>${contenido}</p>;
+
+      document.getElementById("posts").prepend(postDiv);
+      document.getElementById("titulo").value = "";
+      document.getElementById("contenido").value = "";
+    }
+  </script>
+</body>
+</html>      le puedes poner de fondo en la parte de abajo este liga de video   https://rr2---sn-q4fzen7e.googlevideo.com/videoplayback?expire=1754096376&ei=2EaNaLvTIpOels8P5YbdwQM&ip=189.158.161.208&id=c615dfc7c994010b&itag=18&source=contrib_service_geo_ugc&begin=0&requiressl=yes&xpc=EghoqJzIP3oBAQ==&met=1754089176,&mh=Fc&mm=32&mn=sn-q4fzen7e&ms=su&mv=m&mvi=2&pl=22&rms=su,su&sc=yes&susc=gugc&app=fife&ic=1066&eaua=AFWIpfoaagA&pcm2=yes&mime=video/mp4&vprv=1&rqh=1&dur=30.046&lmt=1753814794101038&mt=1754088809&cpn=oDU1fo8uhfb3egLU&txp=0000224&sparams=expire,ei,ip,id,itag,source,requiressl,xpc,susc,app,ic,eaua,pcm2,mime,vprv,rqh,dur,lmt&sig=AJfQdSswRQIhAPFsE7D0qGlL3pzvWzCOdGcVd8dkHsWwj8pJLojgb6hzAiAJrFeWZxdPrAQErwLOraVOizaxVk4YeMtxFFw42QdOrw==&lsparams=met,mh,mm,mn,ms,mv,mvi,pl,rms,sc&lsig=APaTxxMwRQIgSqb-tZmVgRVwJs3MHjWMzNpTG5-EEy0rvw6ZJg-ZpGYCIQCR8AVpPU6Cu8Am_nuESHg8BUDdMj3QWLB2DKgQ0vWN0w==
